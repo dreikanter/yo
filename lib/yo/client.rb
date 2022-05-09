@@ -41,7 +41,7 @@ module Yo
     end
 
     def post(path, params = {})
-      response = connection.post(path, params, {"Content-Type" => "application/json"})
+      response = connection.post(path, params.to_json, {"Content-Type" => "application/json"})
       ensure_successful_response(response)
       JSON.parse(response.body)
     end
@@ -63,6 +63,19 @@ module Yo
     # SEE: https://www.jetbrains.com/help/youtrack/devportal/resource-api-issueTags.html#create-IssueTag-method
     def create_issue_tag
       post("/api/issueTags", fields: "id,name")
+    end
+
+    def create_issue(summary:, description:, project_id:)
+      post(
+        "/api/issues?fields=idReadable,links",
+        project: {id: project_id},
+        summary: summary,
+        description: description
+      )
+    end
+
+    def issue_url(issue_id)
+      URI.join(root_url, "/issue/", issue_id)
     end
 
     private

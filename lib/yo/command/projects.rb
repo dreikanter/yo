@@ -22,15 +22,6 @@ module Yo
 
         puts rows.join("\n")
       end
-
-      private
-
-      def client
-        @client ||= Client.new(
-          token: Config.youtrack_api_token,
-          root_url: Config.youtrack_root_url
-        )
-      end
     end
   end
 end

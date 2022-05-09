@@ -22,6 +22,15 @@ module Yo
         FileUtils.mkdir_p(File.dirname(file_name), mode: 0o755)
         File.write(file_name, content)
       end
+
+      private
+
+      def client
+        @client ||= Client.new(
+          token: Config.youtrack_api_token,
+          root_url: Config.youtrack_root_url
+        )
+      end
     end
   end
 end
