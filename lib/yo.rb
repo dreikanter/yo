@@ -1,0 +1,27 @@
+require "date"
+require "fileutils"
+require "getoptlong"
+require "json"
+require "logger"
+require "pathname"
+require "time"
+
+require "yo/basic_error"
+require "yo/cache"
+require "yo/class_resolver"
+require "yo/cli"
+require "yo/client"
+require "yo/command/base"
+require "yo/command/create"
+require "yo/command/help"
+require "yo/command/projects"
+require "yo/command_builder"
+require "yo/config"
+require "yo/configuration"
+require "yo/main"
+require "yo/params/base"
+require "yo/params/blank"
+require "yo/params/create"
+
+module Yo
+end
