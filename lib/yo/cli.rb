@@ -7,6 +7,7 @@ module Yo
     COMMAND_OPTIONS = {
       "create" => [
         ["--project", "-p", GetoptLong::REQUIRED_ARGUMENT],
+        ["--project-short-name", "-n", GetoptLong::REQUIRED_ARGUMENT],
         ["--summary", "-s", GetoptLong::REQUIRED_ARGUMENT],
         ["--description", "-d", GetoptLong::OPTIONAL_ARGUMENT]
       ],
